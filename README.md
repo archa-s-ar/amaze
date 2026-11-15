@@ -6,6 +6,8 @@ AMAZE is an interactive educational space mission simulator designed for student
 
 Over 30 simulated mission days (Sols), commanders must manage interconnected closed-loop life-support systems, balance scarce energy and water, construct and upgrade lunar infrastructure, mitigate cosmic radiation, and make life-or-death engineering trade-offs when critical space emergencies strike.
 
+Link: https://archa-s-ar.github.io/amaze/
+
 ---
 
 ## 🚀 Key Features
@@ -162,6 +164,7 @@ Surviving all 30 Sols unlocks the **Mission Evaluation Certificate** with detail
 - **Cadet Engineer:** Score < 600
 
 ---
+## Quick Start
 
 ### Option 1: Native Node.js Server
 Clone or navigate to the directory and run:
