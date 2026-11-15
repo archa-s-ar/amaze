@@ -1,0 +1,965 @@
+/* ==========================================================================
+   AMAZE — Space Mission Engineering Simulator
+   components.css — Modals, Engineering Bay, Science Hub, Events, Onboarding
+   ========================================================================== */
+
+/* Modal Backdrop & Container */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(8, 13, 18, 0.85);
+  backdrop-filter: blur(6px);
+}
+
+.modal-card {
+  position: relative;
+  background-color: var(--color-deep-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh;
+  overflow: hidden;
+  z-index: 10;
+  animation: modalEnter 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalEnter {
+  from { opacity: 0; transform: scale(0.97) translateY(8px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.modal-header {
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--color-border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color-deep-ink);
+}
+
+.modal-title {
+  font-size: 18px;
+  letter-spacing: 0.04em;
+  color: var(--color-warm-paper);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.modal-close-btn {
+  background: transparent;
+  border: none;
+  color: var(--color-lunar-grey);
+  font-size: 20px;
+  cursor: pointer;
+  padding: 4px;
+  line-height: 1;
+}
+
+.modal-close-btn:hover {
+  color: var(--color-warm-paper);
+}
+
+.modal-body {
+  padding: 24px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* ==========================================================================
+   ENGINEERING BAY MODAL
+   ========================================================================== */
+.modal-engineering {
+  width: 900px;
+  max-width: 95vw;
+}
+
+.eng-facilities-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+.facility-card {
+  background-color: var(--color-surface-elevated);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.facility-card.facility-highlight {
+  border-color: var(--color-electric-cyan);
+  box-shadow: 0 0 16px var(--color-cyan-glow);
+}
+
+.fac-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fac-title-group {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.fac-name {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-warm-paper);
+}
+
+.fac-tier-badge {
+  font-family: var(--font-telemetry);
+  font-size: 11px;
+  color: var(--color-electric-cyan);
+  background-color: var(--color-deep-ink);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.fac-desc {
+  font-size: 13px;
+  color: var(--color-lunar-grey);
+  line-height: 1.4;
+}
+
+.fac-current-tier-box {
+  background-color: var(--color-deep-ink);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  font-family: var(--font-telemetry);
+  font-size: 11px;
+}
+
+.tier-label {
+  color: var(--color-lunar-grey);
+  margin-bottom: 3px;
+}
+
+.tier-label strong {
+  color: var(--color-warm-paper);
+}
+
+.tier-desc {
+  color: var(--color-electric-cyan);
+}
+
+.fac-mode-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-telemetry);
+  font-size: 11px;
+}
+
+.mode-label {
+  color: var(--color-lunar-grey);
+}
+
+.mode-buttons-group {
+  display: flex;
+  gap: 6px;
+}
+
+.btn-mode {
+  background-color: var(--color-deep-surface);
+  border: 1px solid var(--color-border-subtle);
+  color: var(--color-lunar-grey);
+  font-family: var(--font-telemetry);
+  font-size: 10px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-mode:hover {
+  border-color: var(--color-lunar-grey);
+  color: var(--color-warm-paper);
+}
+
+.btn-mode.active {
+  background-color: rgba(85, 221, 224, 0.12);
+  border-color: var(--color-electric-cyan);
+  color: var(--color-electric-cyan);
+}
+
+.fac-upgrade-section {
+  background-color: rgba(20, 30, 40, 0.4);
+  border: 1px dashed var(--color-border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.next-title {
+  font-family: var(--font-telemetry);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-warm-paper);
+  display: block;
+}
+
+.next-desc {
+  font-size: 12px;
+  color: var(--color-lunar-grey);
+  display: block;
+}
+
+.upgrade-action-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.upgrade-cost {
+  font-family: var(--font-telemetry);
+  font-size: 11px;
+}
+
+.max-tier-banner {
+  font-family: var(--font-telemetry);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-success-green);
+  text-align: center;
+  padding: 6px;
+}
+
+/* ==========================================================================
+   DYNAMIC MISSION EVENT / CRISIS MODAL
+   ========================================================================== */
+.modal-event {
+  width: 700px;
+  max-width: 95vw;
+}
+
+.event-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--color-border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.event-severity-critical {
+  background-color: rgba(232, 93, 93, 0.12);
+  border-left: 4px solid var(--color-emergency-red);
+}
+
+.event-severity-high {
+  background-color: rgba(232, 93, 93, 0.08);
+  border-left: 4px solid var(--color-emergency-red);
+}
+
+.event-severity-medium {
+  background-color: rgba(255, 181, 71, 0.1);
+  border-left: 4px solid var(--color-mission-amber);
+}
+
+.event-severity-low {
+  background-color: rgba(120, 192, 145, 0.1);
+  border-left: 4px solid var(--color-success-green);
+}
+
+.event-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.event-alert-tag {
+  font-family: var(--font-telemetry);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-emergency-red);
+}
+
+.event-severity-badge {
+  font-family: var(--font-telemetry);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-deep-ink);
+  color: var(--color-warm-paper);
+}
+
+.event-title {
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.event-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.event-desc {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--color-warm-paper);
+}
+
+.event-insight-card {
+  background-color: var(--color-deep-ink);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.insight-label {
+  font-family: var(--font-telemetry);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-electric-cyan);
+  letter-spacing: 0.06em;
+}
+
+.insight-text {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--color-lunar-grey);
+}
+
+.btn-link-science {
+  align-self: flex-start;
+  background: transparent;
+  border: none;
+  color: var(--color-electric-cyan);
+  font-family: var(--font-telemetry);
+  font-size: 11px;
+  cursor: pointer;
+  padding: 2px 0;
+  text-decoration: underline;
+  margin-top: 4px;
+}
+
+.btn-link-science:hover {
+  color: #83f4f6;
+}
+
+.event-choices-header {
+  font-family: var(--font-telemetry);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-lunar-grey);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.event-choices-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.event-choice-btn {
+  background-color: var(--color-surface-elevated);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  transition: all var(--transition-fast);
+}
+
+.event-choice-btn:hover {
+  border-color: var(--color-electric-cyan);
+  background-color: var(--color-surface-hover);
+}
+
+.choice-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.choice-number {
+  font-family: var(--font-telemetry);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-electric-cyan);
+}
+
+.choice-name {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-warm-paper);
+}
+
+.choice-desc {
+  font-size: 12px;
+  color: var(--color-lunar-grey);
+  line-height: 1.35;
+}
+
+.choice-cost-preview {
+  font-family: var(--font-telemetry);
+  font-size: 11px;
+  color: var(--color-mission-amber);
+  margin-top: 2px;
+}
+
+/* ==========================================================================
+   SCIENCE BEHIND THE MISSION MODAL
+   ========================================================================== */
+.modal-science {
+  width: 980px;
+  max-width: 95vw;
+  height: 85vh;
+}
+
+.science-modal-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  height: 100%;
+  overflow: hidden;
+}
+
+.science-sidebar {
+  background-color: var(--color-deep-ink);
+  border-right: 1px solid var(--color-border-subtle);
+  overflow-y: auto;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.science-topic-item {
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  transition: all var(--transition-fast);
+}
+
+.science-topic-item:hover {
+  background-color: var(--color-surface-elevated);
+}
+
+.science-topic-item.active {
+  background-color: var(--color-surface-elevated);
+  border-color: var(--color-electric-cyan);
+}
+
+.topic-cat {
+  font-family: var(--font-telemetry);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-electric-cyan);
+}
+
+.topic-title {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-warm-paper);
+}
+
+.science-reader {
+  padding: 24px 32px;
+  overflow-y: auto;
+}
+
+.article-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-family: var(--font-telemetry);
+  font-size: 11px;
+}
+
+.article-cat {
+  color: var(--color-electric-cyan);
+  font-weight: 700;
+}
+
+.article-ref {
+  color: var(--color-lunar-grey);
+}
+
+.article-title {
+  font-size: 26px;
+  margin-bottom: 6px;
+}
+
+.article-subtitle {
+  font-size: 14px;
+  color: var(--color-lunar-grey);
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+
+.article-summary-lead {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-warm-paper);
+  background-color: var(--color-deep-ink);
+  padding: 14px 18px;
+  border-left: 3px solid var(--color-electric-cyan);
+  border-radius: var(--radius-sm);
+  margin-bottom: 24px;
+}
+
+.article-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.article-subheading h3 {
+  font-size: 16px;
+  color: var(--color-warm-paper);
+  margin-bottom: 8px;
+}
+
+.article-prose {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--color-lunar-grey);
+}
+
+.article-prose strong {
+  color: var(--color-warm-paper);
+}
+
+.math-block {
+  font-family: var(--font-telemetry);
+  background-color: var(--color-deep-ink);
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border-subtle);
+  color: var(--color-electric-cyan);
+  font-size: 12px;
+}
+
+/* Calculator Widget */
+.calc-widget {
+  margin-top: 28px;
+  background-color: var(--color-surface-elevated);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.calc-widget h4 {
+  font-size: 15px;
+  color: var(--color-warm-paper);
+}
+
+.calc-desc {
+  font-size: 12px;
+  color: var(--color-lunar-grey);
+}
+
+.calc-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: var(--font-telemetry);
+  font-size: 11px;
+}
+
+.calc-controls input[type="range"] {
+  width: 100%;
+  accent-color: var(--color-electric-cyan);
+}
+
+.calc-results {
+  background-color: var(--color-deep-ink);
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border-subtle);
+  font-family: var(--font-telemetry);
+  font-size: 12px;
+  color: var(--color-warm-paper);
+}
+
+.calc-results strong {
+  color: var(--color-electric-cyan);
+}
+
+/* ==========================================================================
+   MISSION LOG & CHARTS MODAL
+   ========================================================================== */
+.modal-mission-log {
+  width: 800px;
+  max-width: 95vw;
+}
+
+.chart-filter-nav {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.chart-filter-btn {
+  background-color: var(--color-surface-elevated);
+  border: 1px solid var(--color-border-subtle);
+  color: var(--color-lunar-grey);
+  font-family: var(--font-telemetry);
+  font-size: 11px;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.chart-filter-btn.active {
+  border-color: var(--color-electric-cyan);
+  color: var(--color-electric-cyan);
+  background-color: rgba(85, 221, 224, 0.08);
+}
+
+.telemetry-chart-svg {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.chart-empty {
+  padding: 40px;
+  text-align: center;
+  font-family: var(--font-telemetry);
+  font-size: 12px;
+  color: var(--color-lunar-grey);
+  background-color: var(--color-deep-ink);
+  border: 1px dashed var(--color-border-subtle);
+}
+
+.history-item {
+  display: flex;
+  gap: 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+  font-size: 12px;
+}
+
+.hist-sol {
+  font-family: var(--font-telemetry);
+  font-weight: 700;
+  color: var(--color-electric-cyan);
+  min-width: 55px;
+}
+
+.hist-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.hist-choice {
+  color: var(--color-mission-amber);
+  font-family: var(--font-telemetry);
+  font-size: 11px;
+}
+
+.hist-result {
+  color: var(--color-lunar-grey);
+}
+
+/* ==========================================================================
+   MISSION EVALUATION & DEBRIEF MODAL
+   ========================================================================== */
+.modal-eval {
+  width: 760px;
+  max-width: 95vw;
+}
+
+.eval-header {
+  padding: 28px 32px;
+  border-bottom: 1px solid var(--color-border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
+}
+
+.eval-header.eval-success {
+  background-color: rgba(120, 192, 145, 0.08);
+  border-bottom-color: var(--color-success-green);
+}
+
+.eval-header.eval-failure {
+  background-color: rgba(232, 93, 93, 0.08);
+  border-bottom-color: var(--color-emergency-red);
+}
+
+.eval-badge-tag {
+  font-family: var(--font-telemetry);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--color-electric-cyan);
+}
+
+.eval-rank-title {
+  font-size: 32px;
+  line-height: 1.15;
+}
+
+.eval-tagline {
+  font-size: 14px;
+  color: var(--color-lunar-grey);
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+.eval-final-score {
+  font-family: var(--font-telemetry);
+  font-size: 14px;
+  color: var(--color-warm-paper);
+  margin-top: 6px;
+}
+
+.eval-final-score strong {
+  color: var(--color-electric-cyan);
+  font-size: 18px;
+}
+
+.failure-post-mortem {
+  background-color: rgba(232, 93, 93, 0.1);
+  border: 1px solid var(--color-emergency-red);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.failure-post-mortem h3 {
+  color: var(--color-emergency-red);
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  margin-bottom: 6px;
+}
+
+.failure-post-mortem ul {
+  margin: 8px 0 8px 20px;
+  font-size: 12px;
+  color: var(--color-lunar-grey);
+}
+
+.fail-tip {
+  font-size: 12px;
+  color: var(--color-warm-paper);
+  margin-top: 6px;
+}
+
+.eval-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.eval-stat-box {
+  background-color: var(--color-deep-ink);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-lbl {
+  font-family: var(--font-telemetry);
+  font-size: 9px;
+  color: var(--color-lunar-grey);
+  text-transform: uppercase;
+}
+
+.stat-val {
+  font-family: var(--font-telemetry);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-warm-paper);
+}
+
+.eval-score-breakdown {
+  background-color: var(--color-surface-elevated);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 14px 18px;
+  margin-bottom: 20px;
+  font-family: var(--font-telemetry);
+  font-size: 11px;
+}
+
+.eval-score-breakdown h4 {
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: var(--color-lunar-grey);
+}
+
+.breakdown-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+  border-bottom: 1px dashed rgba(36, 51, 66, 0.4);
+}
+
+.breakdown-row.diff-mult {
+  border-top: 1px solid var(--color-border-strong);
+  border-bottom: none;
+  padding-top: 8px;
+  margin-top: 4px;
+  font-weight: 700;
+  color: var(--color-electric-cyan);
+}
+
+.eval-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+/* ==========================================================================
+   TUTORIAL ONBOARDING OVERLAY
+   ========================================================================== */
+.tutorial-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 200;
+  pointer-events: none;
+}
+
+.tutorial-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  pointer-events: auto;
+}
+
+.tutorial-card {
+  position: absolute;
+  width: 340px;
+  background-color: var(--color-deep-surface);
+  border: 2px solid var(--color-electric-cyan);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8), 0 0 20px var(--color-cyan-glow);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: auto;
+  z-index: 210;
+  animation: modalEnter 0.2s ease;
+}
+
+.tutorial-badge {
+  font-family: var(--font-telemetry);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--color-electric-cyan);
+  letter-spacing: 0.08em;
+}
+
+.tutorial-title {
+  font-size: 16px;
+  color: var(--color-warm-paper);
+}
+
+.tutorial-body {
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--color-lunar-grey);
+}
+
+.tutorial-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 6px;
+}
+
+.tut-nav-group {
+  display: flex;
+  gap: 8px;
+}
+
+/* Print layout for evaluation certificates */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #modal-evaluation, #modal-evaluation * {
+    visibility: visible;
+  }
+  #modal-evaluation {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: white !important;
+    color: black !important;
+  }
+  .eval-modal-content {
+    border: 2px solid black;
+    padding: 30px;
+  }
+  .eval-actions, .modal-close-btn {
+    display: none !important;
+  }
+}

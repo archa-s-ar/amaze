@@ -1,0 +1,467 @@
+/* ==========================================================================
+   AMAZE — Space Mission Engineering Simulator
+   landing.css — Landing Hero, Editorial Science Aesthetic, and Briefing Dossier
+   ========================================================================== */
+
+/* Landing Page Wrapper */
+.landing-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-deep-ink);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Landing Navigation Header */
+.landing-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 48px;
+  border-bottom: 1px solid var(--color-border-subtle);
+  background-color: rgba(16, 24, 32, 0.95);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.brand-group {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.amaze-emblem {
+  width: 32px;
+  height: 32px;
+}
+
+.amaze-wordmark {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--color-warm-paper);
+}
+
+.nav-telemetry-badge {
+  font-family: var(--font-telemetry);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--color-lunar-grey);
+  border: 1px solid var(--color-border-subtle);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-deep-surface);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Landing Hero Section */
+.landing-hero {
+  padding: 60px 48px 40px;
+  max-width: 1240px;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.hero-mission-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-telemetry);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-electric-cyan);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.hero-title {
+  font-size: 52px;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: var(--color-warm-paper);
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--color-lunar-grey);
+  font-weight: 400;
+  max-width: 480px;
+}
+
+.hero-telemetry-banner {
+  font-family: var(--font-telemetry);
+  font-size: 12px;
+  color: var(--color-electric-cyan);
+  background: var(--color-deep-surface);
+  border-left: 2px solid var(--color-electric-cyan);
+  padding: 8px 14px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 12px;
+}
+
+/* Hero Vector Illustration */
+.hero-visual-card {
+  position: relative;
+  background-color: var(--color-deep-surface);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+}
+
+.hero-illustration-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.hero-visual-caption {
+  padding: 10px 16px;
+  border-top: 1px solid var(--color-border-subtle);
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-telemetry);
+  font-size: 11px;
+  color: var(--color-lunar-grey);
+  background-color: var(--color-deep-ink);
+}
+
+/* Feature Highlights Grid */
+.landing-features-section {
+  max-width: 1240px;
+  margin: 40px auto 60px;
+  padding: 0 48px;
+  width: 100%;
+}
+
+.section-label {
+  font-family: var(--font-telemetry);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--color-lunar-grey);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background-color: var(--color-border-subtle);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.feature-card {
+  background-color: var(--color-deep-surface);
+  border: 1px solid var(--color-border-subtle);
+  padding: 24px;
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.feature-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-electric-cyan);
+}
+
+.feature-icon-box {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface-elevated);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  border: 1px solid var(--color-border-subtle);
+}
+
+.feature-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-warm-paper);
+}
+
+.feature-text {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--color-lunar-grey);
+}
+
+/* Landing Editorial Philosophy Banner */
+.landing-philosophy {
+  background-color: var(--color-deep-surface);
+  border-top: 1px solid var(--color-border-subtle);
+  border-bottom: 1px solid var(--color-border-subtle);
+  padding: 48px;
+  text-align: center;
+}
+
+.philosophy-quote {
+  font-family: var(--font-heading);
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--color-warm-paper);
+  max-width: 820px;
+  margin: 0 auto 12px;
+  line-height: 1.35;
+}
+
+.philosophy-author {
+  font-family: var(--font-telemetry);
+  font-size: 12px;
+  color: var(--color-electric-cyan);
+  letter-spacing: 0.08em;
+}
+
+/* Landing Footer */
+.landing-footer {
+  padding: 32px 48px;
+  max-width: 1240px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-telemetry);
+  font-size: 11px;
+  color: var(--color-lunar-dark);
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.footer-disclaimer {
+  max-width: 650px;
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+   MISSION BRIEFING VIEW
+   ========================================================================== */
+
+.briefing-container {
+  min-height: 100vh;
+  padding: 40px 48px;
+  max-width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.briefing-header {
+  border-bottom: 1px solid var(--color-border-subtle);
+  padding-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.briefing-tag {
+  font-family: var(--font-telemetry);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-electric-cyan);
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+}
+
+.briefing-title {
+  font-size: 38px;
+  line-height: 1.1;
+}
+
+.briefing-dossier-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+.dossier-panel {
+  background-color: var(--color-deep-surface);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.dossier-panel h3 {
+  font-size: 16px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-warm-paper);
+  border-bottom: 1px solid var(--color-border-subtle);
+  padding-bottom: 10px;
+}
+
+.briefing-param-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: var(--font-telemetry);
+  font-size: 12px;
+}
+
+.param-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px dashed var(--color-border-subtle);
+}
+
+.param-label {
+  color: var(--color-lunar-grey);
+}
+
+.param-val {
+  color: var(--color-warm-paper);
+  font-weight: 600;
+}
+
+/* Difficulty Selector */
+.difficulty-selector {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.diff-select-btn {
+  background-color: var(--color-surface-elevated);
+  border: 1px solid var(--color-border-subtle);
+  padding: 16px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: all var(--transition-fast);
+}
+
+.diff-select-btn:hover {
+  border-color: var(--color-lunar-grey);
+}
+
+.diff-select-btn.active {
+  border-color: var(--color-electric-cyan);
+  background-color: rgba(85, 221, 224, 0.08);
+}
+
+.diff-title {
+  font-family: var(--font-telemetry);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-warm-paper);
+}
+
+.diff-select-btn.active .diff-title {
+  color: var(--color-electric-cyan);
+}
+
+.diff-desc {
+  font-size: 12px;
+  color: var(--color-lunar-grey);
+  line-height: 1.35;
+}
+
+/* Briefing Resource Table */
+.briefing-table-wrap {
+  overflow-x: auto;
+}
+
+.briefing-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-telemetry);
+  font-size: 12px;
+}
+
+.briefing-table th {
+  text-align: left;
+  padding: 8px 10px;
+  color: var(--color-lunar-grey);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.briefing-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid rgba(36, 51, 66, 0.4);
+}
+
+.briefing-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .landing-hero {
+    grid-template-columns: 1fr;
+    padding: 30px 20px;
+  }
+  .features-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .briefing-dossier-grid {
+    grid-template-columns: 1fr;
+  }
+  .landing-nav {
+    padding: 16px 20px;
+  }
+  .briefing-container {
+    padding: 24px 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-title {
+    font-size: 34px;
+  }
+  .difficulty-selector {
+    grid-template-columns: 1fr;
+  }
+}
